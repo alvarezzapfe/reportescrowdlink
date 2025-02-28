@@ -1,0 +1,84 @@
+/* Contenedor Principal */
+.pld-container {
+  padding: 20px;
+  margin-left: 12%;
+  min-height: 100vh; /* Mantiene el contenido con altura suficiente */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 300px; /* Gran espacio debajo de la tabla */
+}
+
+/* Botón de carga de archivos con icono */
+.file-upload-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.file-upload-btn {
+  background: #16c79a;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.upload-icon {
+  margin-right: 8px;
+}
+
+.file-input {
+  display: none;
+}
+
+/* Contenedor de tabla con espacio adicional */
+.table-container {
+  flex-grow: 1; /* Permite que la tabla crezca dinámicamente */
+  overflow-x: auto; /* Scroll horizontal si es necesario */
+  margin-bottom: 200px; /* Aumenta el espacio antes del footer */
+}
+
+/* Tabla */
+.pld-table {
+  width: 100%; /* Ocupa todo el ancho */
+  max-width: 90%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.pld-table th,
+.pld-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.pld-table th {
+  background: #16c79a;
+  color: white;
+}
+
+.pld-table tr:hover {
+  background: #f1f1f1;
+}
+
+/* Botón de ver detalle */
+.detalle-btn {
+  background: #f78fb3;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.detalle-btn:hover {
+  background: #ff6b9e;
+}

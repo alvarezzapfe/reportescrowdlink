@@ -1,0 +1,111 @@
+/* Contenedor principal */
+.reportes-container {
+  padding: 20px;
+  text-align: left;
+  margin-left: auto; /* Mueve todo hacia la derecha */
+  margin-right: 0px; /* Lo pega al lado derecho */
+  max-width: 900px; /* Limita el ancho del grid */
+}
+
+/* Grid para organizar las cajas en 3 filas y 4 columnas */
+.reportes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  grid-template-rows: repeat(3, auto); /* 3 filas */
+  gap: 7px; /* Espacio mínimo entre cajas */
+  justify-content: end; /* Alinea todo a la derecha */
+  padding: 10px;
+}
+
+/* Tarjeta de cada reporte */
+.reporte-card {
+  background: #ffffff;
+  padding: 5px; /* Reduce padding */
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 0.7rem; /* Reduce el tamaño de fuente */
+  width: 150px; /* Más compacto */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.reporte-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Título de cada reporte */
+.reporte-card h3 {
+  font-size: 0.75rem; /* Ajuste de tamaño */
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Estilos para el input de archivo */
+.file-input {
+  display: none;
+}
+
+/* Estilo para el botón de carga de archivos */
+.upload-label {
+  display: block;
+  background: #16c79a;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.upload-label:hover {
+  background: #13a481;
+}
+
+/* Botón de transformación y descarga */
+.btn-transformar {
+  background: #ff9f1c;
+  color: white;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 5px;
+}
+
+.btn-transformar:hover {
+  background: #e88d17;
+}
+
+/* Contenedor de botones */
+.buttons {
+  margin-top: 5px;
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 1024px) {
+  .reportes-grid {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 3 columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .reportes-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .reportes-grid {
+    grid-template-columns: repeat(
+      1,
+      1fr
+    ); /* 1 columna en móviles más pequeños */
+  }
+}
