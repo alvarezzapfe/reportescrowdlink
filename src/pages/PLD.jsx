@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 import { useNavigate } from "react-router-dom";
-import { FaUpload } from "react-icons/fa"; // Ícono para el botón
+import { FaUpload } from "react-icons/fa";
 import "../styles/pld.css";
 
 const PLD = () => {
@@ -21,19 +21,31 @@ const PLD = () => {
 
     const reader = new FileReader();
     reader.onload = (e) => {
-      const data = new Uint8Array(e.target.result);
-      const workbook = XLSX.read(data, { type: "array" });
+      const binaryData = new Uint8Array(e.target.result);
+      const workbook = XLSX.read(binaryData, { type: "array" });
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
       const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
       const processedData = jsonData.slice(1).map((row, index) => ({
         id: index + 1,
-        usuario: row[16] || "N/A", // Columna Q (índice 16)
-        montoInversion: row[38] || 0, // Columna AM (índice 38)
-        proyectoId: row[2] || "N/A", // Columna C (índice 2)
-        gradoRiesgo: calcularGradoRiesgo(row[44]), // Columna AS (índice 44)
+        usuario: row[16] || "N/A", // Columna Q
+        montoInversion: row[38] || 0, // Columna AM
+        proyectoId: row[2] || "N/A", // Columna C
+        gradoRiesgo: calcularGradoRiesgo(row[44]), // Columna AS
         tipoOperacion: "Operación NORMAL",
+        colA: row[0] || "N/A", // Columna A
+        colH: row[7] || "N/A", // Columna H
+        cuentaProyecto: row[10] || "N/A", // Columna K
+        colL: row[11] || "N/A", // Columna L
+        colN: row[13] || "N/A", // Columna N
+        colO: row[14] || "N/A", // Columna O
+        colV: row[21] || "N/A", // Columna V
+        colW: row[22] || "N/A", // Columna W
+        colAA: row[26] || "N/A", // Columna AA
+        colAF: row[31] || "N/A", // Columna AF
+        colAJ: row[35] || "N/A", // Columna AJ
+        colAO: row[40] || "N/A", // Columna AO
       }));
 
       setData(processedData);
@@ -75,7 +87,18 @@ const PLD = () => {
               <th>Monto de Inversión</th>
               <th>Proyecto (ID)</th>
               <th>Grado de Riesgo</th>
-              <th>Tipo de Operación</th>
+              <th>Cuenta Proyecto</th>
+              <th>Col A</th>
+              <th>Col H</th>
+              <th>Col L</th>
+              <th>Col N</th>
+              <th>Col O</th>
+              <th>Col V</th>
+              <th>Col W</th>
+              <th>Col AA</th>
+              <th>Col AF</th>
+              <th>Col AJ</th>
+              <th>Col AO</th>
               <th>Acción</th>
             </tr>
           </thead>
@@ -85,8 +108,25 @@ const PLD = () => {
                 <td>{row.usuario}</td>
                 <td>${row.montoInversion.toLocaleString()}</td>
                 <td>{row.proyectoId}</td>
-                <td>{row.gradoRiesgo}</td>
-                <td>{row.tipoOperacion}</td>
+                <td
+                  className={`riesgo-${row.gradoRiesgo
+                    .toLowerCase()
+                    .replace(" ", "-")}`}
+                >
+                  {row.gradoRiesgo}
+                </td>
+                <td>{row.cuentaProyecto}</td>
+                <td>{row.colA}</td>
+                <td>{row.colH}</td>
+                <td>{row.colL}</td>
+                <td>{row.colN}</td>
+                <td>{row.colO}</td>
+                <td>{row.colV}</td>
+                <td>{row.colW}</td>
+                <td>{row.colAA}</td>
+                <td>{row.colAF}</td>
+                <td>{row.colAJ}</td>
+                <td>{row.colAO}</td>
                 <td>
                   <button
                     className="detalle-btn"

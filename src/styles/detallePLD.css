@@ -1,46 +1,52 @@
 /* 🎯 Contenedor Principal */
 .detalle-pld-container {
-  padding: 40px;
-  margin-left: 10%;
+  padding: 20px;
+  margin-left: 5%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 100px; /* Espacio adicional en la parte inferior */
 }
 
 /* 📌 Título */
 .titulo {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: center;
   color: #333;
 }
 
 /* 📑 Tabla de Detalles */
+.detalle-table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .detalle-table {
   width: 100%;
-  max-width: 95%;
   border-collapse: collapse;
   background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .detalle-table th {
   background: #16c79a;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
-  padding: 14px;
+  padding: 10px;
 }
 
 .detalle-table td {
-  padding: 12px;
+  padding: 8px;
   border-bottom: 1px solid #ddd;
   text-align: left;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #555;
+  white-space: nowrap;
 }
 
 /* 🎨 Resaltado al pasar el mouse */
@@ -48,16 +54,37 @@
   background: #f1f1f1;
 }
 
+/* 📌 Selección de Tipo de Operación */
+.tipo-operacion-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tipo-operacion-container label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.tipo-operacion-container select {
+  padding: 8px;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
 /* 🎯 Botón para Generar TXT */
 .btn-generar {
   background: #ff9fcb;
   color: white;
-  padding: 14px 20px;
-  border-radius: 8px;
-  font-size: 1.1rem;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
   border: none;
-  margin-top: 25px;
+  margin-top: 20px;
   transition: background 0.3s ease-in-out;
   align-self: center;
 }
@@ -66,7 +93,14 @@
   background: #ff6b9e;
 }
 
-/* 📌 MODAL de Información Adicional */
+/* 📌 Espacio adicional al final */
+.detalle-pld-container::after {
+  content: "";
+  display: block;
+  height: 50px;
+}
+
+/* 📌 Estilos del Prompt */
 .prompt-overlay {
   position: fixed;
   top: 0;
@@ -80,35 +114,32 @@
   z-index: 1000;
 }
 
-/* 📑 Caja del Prompt */
 .prompt-box {
   background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 450px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
   text-align: center;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.3s ease-in-out;
 }
 
-/* 📌 Título del Prompt */
 .prompt-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #333;
 }
 
-/* 📑 Inputs del Prompt */
 .prompt-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .prompt-row label {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #555;
   flex: 1;
   text-align: left;
@@ -117,24 +148,23 @@
 .prompt-row input,
 .prompt-row select {
   flex: 1;
-  padding: 10px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: right;
 }
 
-/* 🎯 Botones del Prompt */
 .prompt-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .prompt-btn {
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
   cursor: pointer;
   border: none;
   transition: background 0.3s ease-in-out;

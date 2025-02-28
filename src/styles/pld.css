@@ -1,12 +1,12 @@
 /* Contenedor Principal */
 .pld-container {
-  padding: 20px;
-  margin-left: 12%;
-  min-height: 100vh; /* Mantiene el contenido con altura suficiente */
+  padding: 10px;
+  margin-left: 5%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-bottom: 300px; /* Gran espacio debajo de la tabla */
+  padding-bottom: 150px;
 }
 
 /* Botón de carga de archivos con icono */
@@ -14,22 +14,22 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .file-upload-btn {
   background: #16c79a;
   color: white;
-  padding: 10px 15px;
+  padding: 6px 10px;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .upload-icon {
-  margin-right: 8px;
+  margin-right: 5px;
 }
 
 .file-input {
@@ -38,33 +38,55 @@
 
 /* Contenedor de tabla con espacio adicional */
 .table-container {
-  flex-grow: 1; /* Permite que la tabla crezca dinámicamente */
-  overflow-x: auto; /* Scroll horizontal si es necesario */
-  margin-bottom: 200px; /* Aumenta el espacio antes del footer */
+  flex-grow: 1;
+  overflow-x: hidden;
+  margin-bottom: 100px;
 }
 
 /* Tabla */
 .pld-table {
-  width: 100%; /* Ocupa todo el ancho */
-  max-width: 90%;
+  width: 98%;
+  max-width: 100%;
   border-collapse: collapse;
   background: #ffffff;
+  font-size: 0.7rem; /* Reducción del tamaño de letra */
+  table-layout: fixed; /* Ajuste automático de las columnas */
 }
 
 .pld-table th,
 .pld-table td {
-  padding: 12px;
+  padding: 5px;
   border: 1px solid #ddd;
-  text-align: left;
+  text-align: center;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pld-table th {
   background: #16c79a;
   color: white;
+  font-size: 0.8rem;
 }
 
 .pld-table tr:hover {
   background: #f1f1f1;
+}
+
+/* Colores semáforo para el grado de riesgo */
+.riesgo-bajo-riesgo {
+  background-color: #4caf50;
+  color: white;
+}
+
+.riesgo-moderado {
+  background-color: #ffeb3b;
+  color: black;
+}
+
+.riesgo-alto-riesgo {
+  background-color: #f44336;
+  color: white;
 }
 
 /* Botón de ver detalle */
@@ -72,9 +94,9 @@
   background: #f78fb3;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 5px 8px;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 0.7rem;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 }
